@@ -6,24 +6,27 @@
             <form [formGroup]="loginForm" class="col s12" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm">
                 <div class="row">
                     <div class="input-field col s12">
-                        <input id="email" formControlName="email" type="email" required  class="validate" [class.invalid]="email.invalid && (email.dirty || email.touched)" >
+                        <input id="email" formControlName="email" type="email" required class="validate"
+                            [class.invalid]="email.invalid && (email.dirty || email.touched)">
                         <label for="email">User Name</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
-                        <input id="password" formControlName="password" required  type="password" class="validate">
+                        <input id="password" formControlName="password" required type="password" class="validate">
                         <label for="password">Password</label>
                     </div>
                 </div>
                 <div class="row">
-              
                     <div class="input-field col s12">
-                            <button [class.disabled]="f.invalid" type="submit" class="waves-effect waves-light btn-large full-btn waves-input-wrapper waves-button-input" style="font-size: inherit;">Submit</button>
-                        </div>
+                        <button [class.disabled]="f.invalid" type="submit"
+                            class="waves-effect waves-light btn-large full-btn waves-input-wrapper waves-button-input"
+                            style="font-size: inherit;">Submit</button>
+                    </div>
                 </div>
             </form>
-            <p><a href="forgot-pass.html">forgot password</a> | Are you a new user ? <a routerLink="/register">Register</a>
+            <p><a href="forgot-pass.html">forgot password</a> | Are you a new user ? <a
+                    routerLink="/register">Register</a>
             </p>
             <div class="soc-login">
                 <h4>Sign in using</h4>
