@@ -1,8 +1,9 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import * as M from "materialize-css/dist/js/materialize";
+// import * as M from "materialize-css/dist/js/materialize";
 import { TrainService } from '../../services/train.service';
 import { first } from 'rxjs/operators';
 import { Router } from '@angular/router';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-landing',

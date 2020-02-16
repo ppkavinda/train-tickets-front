@@ -4,6 +4,7 @@ import { TrainService } from 'src/app/public/services/train.service';
 import { first } from 'rxjs/operators';
 import { ActivatedRoute } from '@angular/router';
 import { SearchService } from 'src/app/public/services/search.service';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-home',
@@ -11,7 +12,7 @@ import { SearchService } from 'src/app/public/services/search.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  private trains: any;
+  public trains: any;
 
   constructor(
     public authService: AuthService,
