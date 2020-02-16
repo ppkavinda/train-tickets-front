@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-// import * as M from "materialize-css/dist/js/materialize";
+import * as M from "materialize-css/dist/js/materialize";
 import { TrainService } from '../../services/train.service';
 import { first } from 'rxjs/operators';
 import { Router } from '@angular/router';
@@ -19,7 +19,8 @@ export class LandingComponent implements OnInit {
 
   ngOnInit() {
     $(document).ready(function () {
-      (<any>$('select')).material_select();
+      var elems = document.querySelectorAll('select');
+      var instances = M.FormSelect.init(elems, null);
     });
   }
 

@@ -4,6 +4,7 @@ import { TrainService } from 'src/app/public/services/train.service';
 import { first } from 'rxjs/operators';
 import { ActivatedRoute } from '@angular/router';
 import { SearchService } from 'src/app/public/services/search.service';
+import * as M from "materialize-css/dist/js/materialize";
 import * as $ from 'jquery';
 
 @Component({
@@ -23,8 +24,10 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     $(document).ready(function () {
-      (<any>$('select')).material_select();
+      var elems = document.querySelectorAll('select');
+      var instances = M.FormSelect.init(elems, null);
     });
+  
 
     this.route.queryParams.subscribe(params => {
       if (params && params['from'] && params['to']) {
