@@ -14,6 +14,8 @@ import { FooterComponent } from './public/pages/landing/footer/footer.component'
 import { UpcommingComponent } from './public/pages/landing/upcomming/upcomming.component';
 import { LoginComponent } from './public/pages/common/login/login.component';
 import { RegisterComponent } from './public/pages/common/register/register.component';
+import { AuthService } from './public/services/auth.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -33,8 +35,9 @@ import { RegisterComponent } from './public/pages/common/register/register.compo
     AppRoutingModule,
     DashboardModule,
     BrowserAnimationsModule,
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

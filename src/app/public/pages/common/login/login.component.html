@@ -8,13 +8,15 @@
                     <div class="input-field col s12">
                         <input id="email" formControlName="email" type="email" required class="validate"
                             [class.invalid]="email.invalid && (email.dirty || email.touched)">
-                        <label for="email">User Name</label>
+                        <label for="email">Email</label>
+                        <span *ngIf="email.invalid && (email.dirty || email.touched)" class="helper-text" data-error="wrong" data-success="right" >Invalid email</span>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
                         <input id="password" formControlName="password" required type="password" class="validate">
                         <label for="password">Password</label>
+                        <span *ngIf="password.invalid && (password.dirty || password.touched)" class="helper-text" data-error="wrong" data-success="right" >Invalid passowrd</span>
                     </div>
                 </div>
                 <div class="row">
@@ -28,14 +30,14 @@
             <p><a href="forgot-pass.html">forgot password</a> | Are you a new user ? <a
                     routerLink="/register">Register</a>
             </p>
-            <div class="soc-login">
+            <!-- <div class="soc-login">
                 <h4>Sign in using</h4>
                 <ul>
                     <li><a href="#"><i class="fa fa-facebook fb1"></i> Facebook</a> </li>
                     <li><a href="#"><i class="fa fa-twitter tw1"></i> Twitter</a> </li>
                     <li><a href="#"><i class="fa fa-google-plus gp1"></i> Google</a> </li>
                 </ul>
-            </div>
+            </div> -->
         </div>
     </div>
 </section>

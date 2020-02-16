@@ -40,14 +40,15 @@
                 <div class="col-md-12">
                     <div class="ed-com-t1-left">
                         <ul>
-                            <li><a href="#">Contact: Lake Road, Suite 180 Farmington Hills, U.S.A.</a> </li>
+                            <li><a href="#">Contact:Sri Lanka Railways (SLR). All rights Reserved Sri Lanka Railways, Colombo 10, Sri Lanka.</a> </li>
                             <li><a href="#">Phone: +101-1231-1231</a> </li>
                         </ul>
                     </div>
                     <div class="ed-com-t1-right">
                         <ul>
-                            <li><a routerLink="/login">Sign In</a> </li>
-                            <li><a routerLink="/register">Sign Up</a> </li>
+                            <li *ngIf="!authService.currentUserValue"><a routerLink="/login">Sign In</a> </li>
+                            <li *ngIf="!authService.currentUserValue"><a routerLink="/register">Sign Up</a> </li>
+                            <li *ngIf="authService.currentUserValue"><a (click)="logout()">Sign out</a> </li>
                         </ul>
                     </div>
                     <div class="ed-com-t1-social">

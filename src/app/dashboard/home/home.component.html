@@ -1,5 +1,113 @@
-<div class="db-2">
+<div class="db-2" [class.full-width]="!authService.currentUserValue">
     <div class="db-2-com db-2-main">
+        <h4>Search Trains</h4>
+        <div class="db-2-main-com db-2-main-com-table">
+            <table class="responsive-table">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Package</th>
+                        <th>Duration</th>
+                        <th>Start Date</th>
+                        <th>Price</th>
+                        <th>Payment</th>
+                        <th>More</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr *ngFor="let train of trains">
+                        <td>2</td>
+                        <td>Europe</td>
+                        <td>10days/9nights</td>
+                        <td>09 Nov 2017</td>
+                        <td>$1058</td>
+                        <td><span class="db-not-done">Done</span>
+                        </td>
+                        <td><a href="db-travel-details.html" class="db-done">view more</a>
+                        </td>
+                    </tr>
+                    <tr *ngIf="!trains?.length">
+                        <td>No Results!</td>
+                    </tr>
+                </tbody>
+            </table>
+            <!-- <form class="col s12">
+                <div class="row">
+                    <div class="input-field col s4">
+                        <select #from >
+                            <option value="" disabled selected>From </option>
+                            <option value="1">Colombo Fort</option>
+                            <option value="2">Gall</option>
+                            <option value="3">Matara</option>
+                        </select> -->
+                        <!-- <label for="select-search" class="search-hotel-type">From</label> -->
+                    <!-- </div>
+                    <div class="input-field col s4">
+                        <select #to >
+                            <option value="" disabled selected>To </option>
+                            <option value="1">Colombo Fort</option>
+                            <option value="2">Gall</option>
+                            <option value="3">Matara</option>
+                        </select> -->
+                        <!-- <label for="select-search" class="search-hotel-type">To</label> -->
+                    <!-- </div> -->
+                    <!-- <div class="input-field col s3">
+                        <select #class id="class">
+                            <option value="" disabled selected>Class</option>
+                            <option value="2">2nd Class</option>
+                            <option value="3">3rd Class</option>
+                        </select> -->
+                    <!-- <label for="select-search" class="search-hotel-type">To</label> -->
+                    <!-- </div> -->
+                    <!-- <div class="input-field col s1" style="height: 67px; text-align: center;">
+                        <i class="waves-effect waves-light tourz-sear-btn waves-input-wrapper" style="height: 100%;">
+                            <input style="height: 100%;" type="button" value="go" class="waves-button-input"
+                                (click)="search(from.value, to.value, class.value)" />
+                        </i>
+                    </div>
+                </div> -->
+                <!-- <div class="row">
+                    <div class="input-field col s12 m6">
+                        <input type="email" class="validate">
+                        <label class="">Email id</label>
+                    </div>
+                    <div class="input-field col s12 m6">
+                        <input type="number" class="validate">
+                        <label class="">Phone</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <div class="select-wrapper"><span class="caret">▼</span><input type="text" class="select-dropdown" readonly="true" data-activates="select-options-1f5919a7-160b-7c97-125e-eeee4ad46ed4" value="Select Status"><ul id="select-options-1f5919a7-160b-7c97-125e-eeee4ad46ed4" class="dropdown-content select-dropdown" style="width: 696.469px; position: absolute; top: 0px; left: 0px; opacity: 1; display: none;"><li class="disabled"><span>Select Status</span></li><li class=""><span>Active</span></li><li class=""><span>Non-Active</span></li></ul><select class="initialized">
+                            <option value="" disabled="" selected="">Select Status</option>
+                            <option value="1">Active</option>
+                            <option value="2">Non-Active</option>
+                        </select></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="pay-ca" type="number" class="validate">
+                        <label for="pay-ca">Card Number</label>
+                    </div>
+                </div>
+                <div class="row db-file-upload">
+                    <div class="file-field input-field">
+                        <div class="db-up-btn"> <span>File</span>
+                            <input type="file"> </div>
+                        <div class="file-path-wrapper">
+                            <input class="file-path validate" type="text"> </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="waves-effect waves-light full-btn waves-input-wrapper" style=""><input type="submit" value="SUBMIT" class="waves-button-input"></i> </div>
+                </div> -->
+            <!-- </form> -->
+        </div>
+    </div>
+    <!-- <div class="db-2-com db-2-main">
         <h4>Travel Booking</h4>
         <div class="db-2-main-com db-2-main-com-table">
             <table class="responsive-table">
@@ -95,5 +203,5 @@
                 </tbody>
             </table>
         </div>
-    </div>
+    </div> -->
 </div>

@@ -16,14 +16,16 @@
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
-                        <input id="mobile" type="number" formControlName="mobile" class="validate">
+                        <input id="mobile" type="text" formControlName="mobile" class="validate">
                         <label for="mobile">Mobile</label>
+                        <span *ngIf="mobile.invalid && (mobile.dirty || mobile.touched)" class="helper-text" data-error="wrong" data-success="right" >Mobile Number is invalid</span>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
                         <input id="email" type="email" formControlName="email" class="validate">
                         <label for="email">Email</label>
+                        <span *ngIf="email.invalid && (email.dirty || email.touched)" class="helper-text" data-error="wrong" data-success="right" >Email is invalid</span>
                     </div>
                 </div>
                 <div class="row">
@@ -34,8 +36,9 @@
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
-                        <input type="password" class="validate">
+                        <input type="password" formControlName="passwordConf" class="validate">
                         <label>Confirm Password</label>
+                        <span *ngIf="passowrdConf.invalid && (passowrdConf.dirty || passowrdConf.touched)" class="helper-text" data-error="wrong" data-success="right" >Password confirmation failed</span>
                     </div>
                 </div>
                 <div class="row">

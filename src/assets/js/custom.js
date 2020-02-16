@@ -71,7 +71,7 @@ $(document).ready(function() {
     });
 
     //MATERIALIZE SELECT DROPDOWN
-    $('select').material_select();
+    // $('select').material_select();
 	//MATERIALIZE SLIDER
     $('.slider').slider();
 
