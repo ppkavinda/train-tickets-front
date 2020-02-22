@@ -4,10 +4,11 @@ import { Router } from '@angular/router';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
+import { BASE_URL } from 'src/config/URL';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
-  private BASE_URL = "http://localhost:5000";
+  // private BASE_URL = "http://localhost:5000";
   private currentUserSubject: BehaviorSubject<User>;
   public currentUser: Observable<User>;
 
@@ -23,7 +24,7 @@ export class AuthService {
   public login(email: string, password: string) {
     console.log('authService:Login', { email, password });
 
-    return this.http.post<any>(`${this.BASE_URL}/login`, { email, password })
+    return this.http.post<any>(`${BASE_URL}/login`, { email, password })
       .pipe(map(user => {
         // login successful if there's a jwt token in the response
         if (user && user.token) {
@@ -38,7 +39,7 @@ export class AuthService {
   register(user: User) {
     console.log('registerService', user);
 
-    return this.http.post<any>(`${this.BASE_URL}/register`, user)
+    return this.http.post<any>(`${BASE_URL}/register`, user)
       .pipe(map(user => {
         if (user && user.token) {
           localStorage.setItem('currentUser', JSON.stringify(user));
