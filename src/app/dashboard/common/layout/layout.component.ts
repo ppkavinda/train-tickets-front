@@ -12,6 +12,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class LayoutComponent implements OnInit {
 
+
   constructor(
     public authService: AuthService,
     public trainService: TrainService,
@@ -20,7 +21,13 @@ export class LayoutComponent implements OnInit {
     private searchService: SearchService,
   ) { }
 
-  ngOnInit() { }
+  ngOnInit() { 
+    this.route.queryParams.subscribe(params => {
+      console.log(params);
+      
+    })
+    
+   }
 
   search(from: string, to: string) {
     // return this.trainService.search(from, to)
@@ -29,7 +36,7 @@ export class LayoutComponent implements OnInit {
     //     console.log(result);
     //     this.searchService.setSearchResults(result);
     //   }, error => console.log(error));
-    this.router.navigate(['.'],
+    return this.router.navigate(['.'],
       {
         queryParams: { from, to },
         relativeTo: this.route

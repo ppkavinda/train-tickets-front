@@ -5,13 +5,13 @@
             <table class="responsive-table">
                 <thead>
                     <tr>
+                        <th>Name</th>
                         <th>No</th>
-                        <th>Package</th>
-                        <th>Duration</th>
-                        <th>Start Date</th>
-                        <th>Price</th>
-                        <th>Payment</th>
-                        <th>More</th>
+                        <th>Start Time</th>
+                        <th>End Time</th>
+                        <th>Description</th>
+                        <th>Type</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -22,9 +22,8 @@
                         <td>10days/9nights</td>
                         <td>09 Nov 2017</td>
                         <td>$1058</td>
-                        <td><span class="db-not-done">Done</span>
-                        </td>
-                        <td><a href="db-travel-details.html" class="db-done">view more</a>
+                        <td>Daily</td>
+                        <td><a href="db-travel-details.html" class="db-done">Select</a>
                         </td>
                     </tr>
                     <tr *ngIf="!trains?.length">
