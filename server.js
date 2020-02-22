@@ -1,15 +1,18 @@
 //Install express server
 const express = require('express');
 const path = require('path');
-const PORT = 5000;
- 
+const PORT = process.env.PORT ||  8080;
+
 var bodyParser = require('body-parser');
- 
+
 const app = express();
 
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+
+  console.log(req.url, " : ", req.method);
+
   next();
 });
 
@@ -19,7 +22,7 @@ app.use(bodyParser.json())
 // Serve only the static files form the dist directory
 app.use(express.static(__dirname + '/dist/train-schedule'));
 
-app.get('/*', function(req, res) {
+app.get('/*', function (req, res) {
   res.sendFile(path.join(__dirname + '/dist/train-schedule/index.html'));
 });
 
@@ -29,9 +32,8 @@ app.get('/companies', (req, res) => {
     { "id": 1, "name": "Company One" },
     { "id": 2, "name": "Company Two" }
   ]
-  return res.json({
-    companies: companies
-  })
+
+  return res.json(companies)
 });
 
 app.post('/login', (req, res) => {
@@ -42,9 +44,7 @@ app.post('/login', (req, res) => {
     "email": "pp.kaidvna@gmail.com",
     "token": "Bearer asdlfkjasdlkfjsdfkljdasfkldjsafkljkljlksj"
   }
-  return res.json({
-    user: user
-  })
+  return res.json(user)
 });
 
 app.post('/register', (req, res) => {
@@ -55,9 +55,7 @@ app.post('/register', (req, res) => {
     "email": "pp.kaidvna@gmail.com",
     "token": "Bearer asdlfkjasdlkfjsdfkljdasfkldjsafkljkljlksj"
   }
-  return res.json({
-    user: user
-  })
+  return res.json(user)
 });
 
 app.post('/train/search', (req, res) => {
@@ -83,9 +81,7 @@ app.post('/train/search', (req, res) => {
         ]
     }
   ]
-  return res.json({
-    trains: trains
-  })
+  return res.json(trains)
 });
 
 

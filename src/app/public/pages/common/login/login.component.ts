@@ -29,7 +29,6 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.authService);
 
     // stop here if form is invalid
     if (this.loginForm.invalid) {
@@ -41,7 +40,7 @@ export class LoginComponent implements OnInit {
       .pipe(first())
       .subscribe(
         data => {
-          this.router.navigate([this.returnUrl]);
+          if (data) this.router.navigate([this.returnUrl]);
         },
         error => {
           console.log('loginError', error);

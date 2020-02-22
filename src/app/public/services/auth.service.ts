@@ -8,7 +8,6 @@ import { BASE_URL } from 'src/config/URL';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
-  // private BASE_URL = "http://localhost:5000";
   private currentUserSubject: BehaviorSubject<User>;
   public currentUser: Observable<User>;
 
@@ -22,17 +21,20 @@ export class AuthService {
   }
 
   public login(email: string, password: string) {
-    console.log('authService:Login', { email, password });
 
-    return this.http.post<any>(`${BASE_URL}/login`, { email, password })
+    return this.http.post<User>(`${BASE_URL}/login`, { email, password })
       .pipe(map(user => {
         // login successful if there's a jwt token in the response
+        console.log('authService:Login', user, user.token);
+
         if (user && user.token) {
+          console.log('authService:Login', user);
           // store user details and jwt token in local storage to keep user logged in between page refreshes
           localStorage.setItem('currentUser', JSON.stringify(user));
           this.currentUserSubject.next(user);
+          return user;
         }
-        return user;
+        return false;
       }));
   }
 
