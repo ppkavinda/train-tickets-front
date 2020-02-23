@@ -1,0 +1,114 @@
+<div class="dbd-2" [class.full-width]="!authService.currentUserValue" [class.pl]="authService.currentUserValue">
+    <!-- <div class="db-2-com db-2-main"> -->
+        <!-- <h4>Search Trains</h4> -->
+        <!-- <div class="inn-page-con-bg tb-space pad-bot-redu-5"> -->
+            <!-- <div class="rows"> -->
+                <div class="tr-regi-form v2-search-form" style="margin-top: 0px;">
+                    <h4>Book <span>Ticket</span></h4>
+                    <p>It's really easy.</p>
+                    <form class="contact__form" method="post" action="http://rn53themes.net/themes/demo/travelz/mail/tourbooking.php">
+                                <div class="alert alert-success contact__msg" style="display: none" role="alert">
+                                    Thank you for arranging a wonderful trip for us! Our team will contact you shortly!
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <input type="text" class="validate" name="name" required="">
+                                        <label>Enter your name</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s6">
+                                        <input type="number" class="validate" name="phone" required="">
+                                        <label>Enter your phone</label>
+                                    </div>
+                                    <div class="input-field col s6">
+                                        <input type="email" class="validate" name="email" required="">
+                                        <label>Enter your email</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <input type="text" id="select-city-1" class="autocomplete validate" name="city">
+                                        <label for="select-city-1">Select City or Place</label>
+                                    <ul class="autocomplete-content dropdown-content"></ul></div>
+                                    <div class="input-field col s12">
+                                        <div class="select-wrapper"><span class="caret">▼</span><input type="text" class="select-dropdown" readonly="true" data-activates="select-options-f01989dc-4c04-b449-00e5-cfd1f9c7715e" value="Select your package"><ul id="select-options-f01989dc-4c04-b449-00e5-cfd1f9c7715e" class="dropdown-content select-dropdown "><li class="disabled "><span>Select your package</span></li><li class=""><span>Honeymoon Package</span></li><li class=""><span>Family Package</span></li><li class=""><span>Holiday Package</span></li><li class=""><span>Group Package</span></li><li class=""><span>Regular Package</span></li></ul><select name="package" class="initialized">
+                                            <option value="" disabled="" selected="">Select your package</option>
+                                            <option value="Honeymoon Package">Honeymoon Package</option>
+                                            <option value="Family Package">Family Package</option>
+                                            <option value="Holiday Package">Holiday Package</option>
+                                            <option value="Group Package">Group Package</option>
+                                            <option value="Regular Package">Regular Package</option>
+                                        </select></div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s6">
+                                        <input type="text" id="from" name="arrival" readonly="">
+                                        <label for="from">Arrival Date</label>
+                                    </div>
+                                    <div class="input-field col s6">
+                                        <input type="text" id="to" name="departure" readonly="">
+                                        <label for="to">Departure Date</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s6">
+                                        <div class="select-wrapper"><span class="caret">▼</span><input type="text" class="select-dropdown" readonly="true" data-activates="select-options-f9281df6-40ed-9819-004f-aefd89aa6a16" value="No of adults"><ul id="select-options-f9281df6-40ed-9819-004f-aefd89aa6a16" class="dropdown-content select-dropdown "><li class="disabled "><span>No of adults</span></li><li class=""><span>1</span></li><li class=""><span>2</span></li><li class=""><span>3</span></li><li class=""><span>4</span></li><li class=""><span>5</span></li><li class=""><span>6</span></li></ul><select name="noofadults" class="initialized">
+                                            <option value="" disabled="" selected="">No of adults</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                            <option value="6">6</option>
+                                        </select></div>
+                                    </div>
+                                    <div class="input-field col s6">
+                                        <div class="select-wrapper"><span class="caret">▼</span><input type="text" class="select-dropdown" readonly="true" data-activates="select-options-8021a1de-7521-e965-a8b3-be9cb32a1db2" value="No of childrens"><ul id="select-options-8021a1de-7521-e965-a8b3-be9cb32a1db2" class="dropdown-content select-dropdown "><li class="disabled "><span>No of childrens</span></li><li class=""><span>1</span></li><li class=""><span>2</span></li><li class=""><span>3</span></li><li class=""><span>4</span></li><li class=""><span>5</span></li><li class=""><span>6</span></li></ul><select name="noofchildrens" class="initialized">
+                                            <option value="" disabled="" selected="">No of childrens</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                            <option value="6">6</option>											
+                                        </select></div>
+                                    </div>
+                                </div>							
+    
+                                <div class="row">
+                                    <div class="input-field col s6">
+                                        <div class="select-wrapper"><span class="caret">▼</span><input type="text" class="select-dropdown" readonly="true" data-activates="select-options-3cc933a3-2bca-3ce1-daad-e543b1b37972" value="Min Price"><ul id="select-options-3cc933a3-2bca-3ce1-daad-e543b1b37972" class="dropdown-content select-dropdown "><li class="disabled "><span>Min Price</span></li><li class=""><span>$200</span></li><li class=""><span>$500</span></li><li class=""><span>$1000</span></li><li class=""><span>$5000</span></li><li class=""><span>$10,000</span></li><li class=""><span>$50,000</span></li></ul><select name="minprice" class="initialized">
+                                            <option value="" disabled="" selected="">Min Price</option>
+                                            <option value="$200">$200</option>
+                                            <option value="$500">$500</option>
+                                            <option value="$1000">$1000</option>
+                                            <option value="$5000">$5000</option>
+                                            <option value="$10,000">$10,000</option>
+                                            <option value="$50,000">$50,000</option>
+                                        </select></div>
+                                    </div>
+                                    <div class="input-field col s6">
+                                        <div class="select-wrapper"><span class="caret">▼</span><input type="text" class="select-dropdown" readonly="true" data-activates="select-options-54426014-4257-ceea-c1ae-635060ec6848" value="Max Price"><ul id="select-options-54426014-4257-ceea-c1ae-635060ec6848" class="dropdown-content select-dropdown "><li class="disabled "><span>Max Price</span></li><li class=""><span>$200</span></li><li class=""><span>$500</span></li><li class=""><span>$1000</span></li><li class=""><span>$5000</span></li><li class=""><span>$10,000</span></li><li class=""><span>$50,000</span></li></ul><select name="maxprice" class="initialized">
+                                            <option value="" disabled="" selected="">Max Price</option>
+                                            <option value="$200">$200</option>
+                                            <option value="$500">$500</option>
+                                            <option value="$1000">$1000</option>
+                                            <option value="$5000">$5000</option>
+                                            <option value="$10,000">$10,000</option>
+                                            <option value="$50,000">$50,000</option>
+                                        </select></div>
+                                    </div>								
+                                </div>							
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <i class="waves-effect waves-light tourz-sear-btn v2-ser-btn waves-input-wrapper" style=""><input type="submit" value="Book Now" class="waves-button-input"></i>
+                                    </div>
+                                </div>
+                            </form>
+                </div>
+            <!-- </div> -->
+        <!-- </div> -->
+    <!-- </div> -->
+</div>

@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { AuthService } from 'src/app/public/services/auth.service';
 import { SearchService } from 'src/app/public/services/search.service';
 import { TrainService } from 'src/app/public/services/train.service';
 import { first } from 'rxjs/operators';
 import { Router, ActivatedRoute } from '@angular/router';
+import * as M from "materialize-css/dist/js/materialize";
 
 @Component({
   selector: 'app-layout',
@@ -11,7 +12,8 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./layout.component.scss']
 })
 export class LayoutComponent implements OnInit {
-
+  @ViewChild('from', {static: true}) from: ElementRef;
+  @ViewChild('to', {static: true}) to: ElementRef;
 
   constructor(
     public authService: AuthService,
@@ -22,11 +24,18 @@ export class LayoutComponent implements OnInit {
   ) { }
 
   ngOnInit() { 
+    $(document).ready(function () {
+      var from = document.querySelectorAll('#from-top-nav');
+      var to = document.querySelectorAll('#to-top-nav');
+      M.FormSelect.init(from, null);
+      M.FormSelect.init(to, null);
+    });
+
+    // get query params and preselect the from/to dropdowns
     this.route.queryParams.subscribe(params => {
-      console.log(params);
-      
+      this.from.nativeElement.value = params['from'];
+      this.to.nativeElement.value = params['to'];
     })
-    
    }
 
   search(from: string, to: string) {

@@ -23,7 +23,7 @@
                         <td>09 Nov 2017</td>
                         <td>$1058</td>
                         <td>Daily</td>
-                        <td><a href="db-travel-details.html" class="db-done">Select</a>
+                        <td><a routerLink="details" [queryParams]="{from : 1, to: 2}" class="db-done">Select</a>
                         </td>
                     </tr>
                     <tr *ngIf="!trains?.length">

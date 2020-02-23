@@ -23,12 +23,6 @@ export class HomeComponent implements OnInit {
     ) { }
 
   ngOnInit() {
-    $(document).ready(function () {
-      var elems = document.querySelectorAll('select');
-      var instances = M.FormSelect.init(elems, null);
-    });
-  
-
     this.route.queryParams.subscribe(params => {
       if (params && params['from'] && params['to']) {
         this.search(params['from'], params['to']);

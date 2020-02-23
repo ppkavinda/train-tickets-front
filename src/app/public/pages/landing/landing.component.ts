@@ -19,8 +19,10 @@ export class LandingComponent implements OnInit {
 
   ngOnInit() {
     $(document).ready(function () {
-      var elems = document.querySelectorAll('select');
-      var instances = M.FormSelect.init(elems, null);
+      var from = document.querySelector('#from-landing');
+      var to = document.querySelector('#to-landing');
+      M.FormSelect.init(from, null);
+      M.FormSelect.init(to, null);
     });
   }
 

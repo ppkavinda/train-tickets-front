@@ -24,7 +24,7 @@ import { HttpClientModule } from '@angular/common/http';
     NotFoundComponent,
     LandingComponent,
     MainNavComponent,
-    FooterComponent,
+    // FooterComponent,
     UpcommingComponent,
     LoginComponent,
     RegisterComponent,
