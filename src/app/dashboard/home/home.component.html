@@ -23,7 +23,8 @@
                         <td>{{ train.endTime }}</td>
                         <td>{{ train.description }}</td>
                         <td>{{ train.trainType }}</td>
-                        <td><a routerLink="details" [queryParams]="{from : 1, to: 2}" class="db-done">Select</a>
+                        <td>
+                            <a (click)="gotoDetails(train)" class="db-done">Select</a>
                         </td>
                     </tr>
                     <tr *ngIf="!trains?.length">

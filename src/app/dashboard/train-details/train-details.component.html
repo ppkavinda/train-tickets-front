@@ -15,13 +15,13 @@
                 <div class="input-field col s6">
                     <div class="">
                         <label for="train-name" style="font-size: .8em; opacity: 1;">From</label>
-                        <input type="text" id="from-label" class="" readonly="true" value="Colombo Fort">
+                        <input type="text" id="from-label" class="" readonly="true" [value]="fromStation?.name">
                     </div>
                 </div>
                 <div class="input-field col s6">
                     <div class="">
                         <label for="ticket-price" style="font-size: .8em; opacity: 1;">To</label>
-                        <input type="text"  id="to-label" readonly="true" value="Matara">
+                        <input type="text"  id="to-label" readonly="true" [value]="toStation?.name">
                     </div>
                 </div>
             </div>
@@ -29,43 +29,43 @@
                 <div class="input-field col s6">
                     <div class="">
                         <label for="train-name" style="font-size: .8em; opacity: 1;">Train Name</label>
-                        <input type="text" id="train-name" class="" readonly="true" value="Ruhunu Kumari">
+                        <input type="text" id="train-name" class="" readonly="true" [value]="train?.trainName">
                     </div>
                 </div>
                 <div class="input-field col s6">
                     <div class="">
                         <label for="ticket-price" style="font-size: .8em; opacity: 1;">Ticket Price</label>
-                        <input type="text"  id="ticket-price" readonly="true" value="Ticket Price">
+                        <input type="text"  id="ticket-price" readonly="true" [value]="price * quantity">
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12">
-                    <input type="number" class="validate" name="no-of-ticket" required="">
+                    <input type="number" class="validate" (change)="onQuantityChange(this.value)" name="no-of-ticket" [(ngModel)]="quantity" required="">
                     <label style="opacity: 1;">Number Of Tickets</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s6">
-                    <input type="text" id="from" name="arrival" readonly="">
+                    <input type="text" id="from" name="arrival" [(ngModel)]="arrivalDate" readonly="">
                     <label for="from">Arrival Date</label>
                 </div>
                 <div class="input-field col s6">
                     <div class="select-wrapper">
-                        <select name="package" id="ticket-category" class="initialized">
-                            <option value="" disabled="" selected="">Select Ticket Category</option>
-                            <option value="Honeymoon Package">1st Class</option>
-                            <option value="Family Package">2nd Class</option>
+                        <select name="package" (change)="getPrice()" id="ticket-category" class="initialized">
+                            <option value="" disabled="" selected="">Select Ticket Category </option>
+                            <!-- <option value="Honeymoon Package">1st Class</option> -->
+                            <option *ngFor="let category of categories" [value]="category.id">{{ category.name }}</option>
                         </select>
                     </div>
                 </div>
             </div>
            
-
             <div class="row">
                 <div class="input-field col s12">
-                    <i class="waves-effect waves-light tourz-sear-btn v2-ser-btn waves-input-wrapper" style=""><input
-                            type="submit" value="Book Now" class="waves-button-input"></i>
+                    <i class="waves-effect waves-light tourz-sear-btn v2-ser-btn waves-input-wrapper">
+                        <input type="submit" (click)="bookTicket()" value="Book Now" class="waves-button-input">
+                    </i>
                 </div>
             </div>
         </form>

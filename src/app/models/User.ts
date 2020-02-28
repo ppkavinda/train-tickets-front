@@ -1,11 +1,11 @@
 import { IUser } from './IUser';
 
 export class User implements IUser {
-    id: number;
+    userId: number;
     firstname: string;
     lastname: string;
     email: string;
-    mobile: string;
+    phoneNumnber: string;
     password ?: string;
     token: string;
     

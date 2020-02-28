@@ -18,6 +18,10 @@ export class TrainService {
       }));
   }
 
+  public getTrainDetails(id: any) {
+    return this.http.get<any>(`${BASE_URL}//train-status/${id} `);
+  }
+
   public getStationList() {
     return this.http.get<any>(`${BASE_URL}/station/all`);
   }
