@@ -11,18 +11,17 @@
                         <div class="input-field col s4">
                             <select #from id="from-landing">
                                 <option value="" disabled selected>From </option>
-                                <option value="1">Colombo Fort</option>
+                                <!-- <option value="1">Colombo Fort</option>
                                 <option value="2">Gall</option>
-                                <option value="3">Matara</option>
+                                <option value="3">Matara</option> -->
+                                <option *ngFor="let station of stationList" [value]="station.id">{{ station.name }}</option>
                             </select>
                             <label for="select-city">From</label>
                         </div>
                         <div class="input-field col s4">
                             <select #to id="to-landing">
                                 <option value="" disabled selected>To </option>
-                                <option value="1">Colombo Fort</option>
-                                <option value="2">Gall</option>
-                                <option value="3">Matara</option>
+                                <option *ngFor="let station of stationList" [value]="station.id">{{ station.name }}</option>
                             </select>
                             <label for="select-search" class="search-hotel-type">To</label>
                         </div>

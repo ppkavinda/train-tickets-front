@@ -14,6 +14,7 @@ import * as M from "materialize-css/dist/js/materialize";
 export class LayoutComponent implements OnInit {
   @ViewChild('from', {static: true}) from: ElementRef;
   @ViewChild('to', {static: true}) to: ElementRef;
+  stationList: any[];
 
   constructor(
     public authService: AuthService,
@@ -35,6 +36,11 @@ export class LayoutComponent implements OnInit {
     this.route.queryParams.subscribe(params => {
       this.from.nativeElement.value = params['from'];
       this.to.nativeElement.value = params['to'];
+    })
+
+    this.trainService.getStationList()
+    .subscribe(stationList => {
+      this.stationList = stationList.data;
     })
    }
 

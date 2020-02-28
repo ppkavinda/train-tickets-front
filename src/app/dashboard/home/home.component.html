@@ -17,12 +17,12 @@
                 <tbody>
 
                     <tr *ngFor="let train of trains">
-                        <td>2</td>
-                        <td>Europe</td>
-                        <td>10days/9nights</td>
-                        <td>09 Nov 2017</td>
-                        <td>$1058</td>
-                        <td>Daily</td>
+                        <td>{{ train.trainName }}</td>
+                        <td>{{ train.trainNo }}</td>
+                        <td>{{ train.startTime }}</td>
+                        <td>{{ train.endTime }}</td>
+                        <td>{{ train.description }}</td>
+                        <td>{{ train.trainType }}</td>
                         <td><a routerLink="details" [queryParams]="{from : 1, to: 2}" class="db-done">Select</a>
                         </td>
                     </tr>

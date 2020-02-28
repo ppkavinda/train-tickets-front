@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/public/services/auth.service';
+import { TrainService } from 'src/app/public/services/train.service';
 
 @Component({
   selector: 'app-main-nav',
@@ -8,8 +9,10 @@ import { AuthService } from 'src/app/public/services/auth.service';
 })
 export class MainNavComponent implements OnInit {
 
-  constructor(public authService: AuthService) { }
-  
+  constructor(public authService: AuthService,
+    private trainService: TrainService
+  ) { }
+
   loggedIn: boolean;
 
   ngOnInit() {

@@ -39,7 +39,7 @@ export class HomeComponent implements OnInit {
       .pipe(first())
       .subscribe(result => {
         console.log('homeComponent:Search', result);
-        this.trains = result;
+        this.trains = result.data;
       }, error => console.log(error));
   }
 }

@@ -12,6 +12,7 @@ import * as $ from 'jquery';
 })
 export class LandingComponent implements OnInit {
   @ViewChild('to', null) nameInputRef: ElementRef;
+  stationList: any[];
 
   constructor(
     private trainService: TrainService,
@@ -24,6 +25,10 @@ export class LandingComponent implements OnInit {
       M.FormSelect.init(from, null);
       M.FormSelect.init(to, null);
     });
+    this.trainService.getStationList()
+      .subscribe(stationList => {
+        this.stationList = stationList.data;
+      })
   }
 
   search(from: string, to: string) {

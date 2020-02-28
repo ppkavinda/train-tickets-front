@@ -12,10 +12,13 @@ export class TrainService {
   constructor(private http: HttpClient) { }
 
   public search(from: string, to: string) {
-    return this.http.post<any>(`${BASE_URL}/train/search`, { from, to })
+    return this.http.post<any>(`${BASE_URL}/search-train`, {data: { startStationId: from, endStationId: to }})
       .pipe(map((result) => {
-        // console.log(result);
         return result;
       }));
+  }
+
+  public getStationList() {
+    return this.http.get<any>(`${BASE_URL}/station/all`);
   }
 }

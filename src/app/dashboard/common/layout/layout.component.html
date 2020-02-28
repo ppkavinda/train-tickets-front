@@ -3,31 +3,30 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="search-form">
-                <form class="tourz-search-form">
-                    <div class="input-field col s4">
-                        <select #from id="from-top-nav">
-                            <option value="" disabled selected>From </option>
-                            <option value="1">Colombo Fort</option>
-                            <option value="2">Gall</option>
-                            <option value="3">Matara</option>
-                        </select>
-                        <label for="select-city">From</label>
-                    </div>
-                    <div class="input-field col s4">
-                        <select #to id="to-top-nav">
-                            <option value="" disabled selected>To </option>
-                            <option value="1">Colombo Fort</option>
-                            <option value="2">Gall</option>
-                            <option value="3">Matara</option>
-                        </select>
-                        <label for="select-search" class="search-hotel-type">To</label>
-                    </div>
-                    <div class="input-field col s2">
-                        <i class="waves-effect waves-light tourz-sear-btn waves-input-wrapper" >
-                            <input style="width: 100%;" type="button" value="search" class="waves-button-input" (click)="search(from.value, to.value)"/>
-                        </i>
-                    </div>
-                </form>
+                    <form class="tourz-search-form">
+                        <div class="input-field col s4">
+                            <select #from id="from-top-nav">
+                                <option value="" disabled selected>From </option>
+                                <option *ngFor="let station of stationList" [value]="station.id">{{ station.name }}
+                                </option>
+                            </select>
+                            <label for="select-city">From</label>
+                        </div>
+                        <div class="input-field col s4">
+                            <select #to id="to-top-nav">
+                                <option value="" disabled selected>To </option>
+                                <option *ngFor="let station of stationList" [value]="station.id">{{ station.name }}
+                                </option>
+                            </select>
+                            <label for="select-search" class="search-hotel-type">To</label>
+                        </div>
+                        <div class="input-field col s2">
+                            <i class="waves-effect waves-light tourz-sear-btn waves-input-wrapper">
+                                <input style="width: 100%;" type="button" value="search" class="waves-button-input"
+                                    (click)="search(from.value, to.value)" />
+                            </i>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -38,7 +37,7 @@
         <app-side-nav *ngIf="authService.currentUserValue"></app-side-nav>
 
         <router-outlet></router-outlet>
-<!--         
+        <!--         
         <div class="db-3">
             <h4>Notifications</h4>
             <ul>
