@@ -22,14 +22,14 @@ export class TrainDetailsComponent implements OnInit {
   fromParam: any;
   toParam: any;
 
-  private price = 0;
-  private quantity = 1;
-  private arrivalDate: any;
-  private category = 1;
-  private from;
-  private to;
+  public price = 0;
+  public quantity = 1;
+  public arrivalDate: any;
+  public category = 1;
+  public from;
+  public to;
   public categories: any[];
-  private ticketCategory;
+  public ticketCategory;
 
   constructor(
     public authService: AuthService,
