@@ -56,8 +56,8 @@ export class AuthService {
     return this.http.post<any>(`${BASE_URL}/user/create`, {data: {...user}})
       .pipe(map(user => {
         if (user && user) {
+          this.currentUserSubject.next(user.data);
           localStorage.setItem('currentUser', JSON.stringify(user.data));
-          this.currentUserSubject.next(user);
         }
       }));
   }
