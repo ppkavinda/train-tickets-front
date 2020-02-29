@@ -7,7 +7,6 @@ import { BASE_URL } from 'src/config/URL';
   providedIn: 'root'
 })
 export class TrainService {
-  // private BASE_URL = "http://localhost:5000";
 
   constructor(private http: HttpClient) { }
 

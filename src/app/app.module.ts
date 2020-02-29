@@ -16,6 +16,8 @@ import { LoginComponent } from './public/pages/common/login/login.component';
 import { RegisterComponent } from './public/pages/common/register/register.component';
 import { AuthService } from './public/services/auth.service';
 import { HttpClientModule } from '@angular/common/http';
+import { AlertComponent } from './public/pages/common/alert/alert.component';
+import { ContactUsComponent } from './public/pages/contact-us/contact-us.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +30,8 @@ import { HttpClientModule } from '@angular/common/http';
     UpcommingComponent,
     LoginComponent,
     RegisterComponent,
+    ContactUsComponent,
+    // AlertComponent,
   ],
   imports: [
     BrowserModule,

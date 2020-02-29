@@ -4,6 +4,7 @@ import { first } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/public/services/auth.service';
 import { AlertService } from 'src/app/public/services/alert.service';
+import * as M from "materialize-css/dist/js/materialize";
 
 @Component({
   selector: 'app-register',
@@ -34,10 +35,11 @@ export class RegisterComponent implements OnInit {
       .pipe(first())
       .subscribe(
         data => {
-          this.alertService.success('Registration successful', true);
+          M.toast({html: 'Registration successful'})
           this.router.navigate(['/']);
         },
         error => {
+          M.toast({html: 'Registration failed'})
           this.alertService.error(error);
           this.loading = false;
         });
@@ -47,7 +49,7 @@ export class RegisterComponent implements OnInit {
     this.registerForm = this.formBuilder.group({
       firstName: new FormControl("", [Validators.required]),
       lastName: new FormControl("", [Validators.required]),
-      mobile: new FormControl("", [Validators.required]),
+      phoneNumnber: new FormControl("", [Validators.required]),
       email: new FormControl("", [Validators.required, Validators.email]),
       password: new FormControl("", [Validators.required]),
       passwordConf: new FormControl("", [Validators.required])
@@ -76,8 +78,8 @@ export class RegisterComponent implements OnInit {
   get email() {
     return this.registerForm.get('email');
   }
-  get mobile() {
-    return this.registerForm.get('mobile');
+  get phoneNumnber() {
+    return this.registerForm.get('phoneNumnber');
   }
   get passowrdConf() {
     return this.registerForm.get('passwordConf');

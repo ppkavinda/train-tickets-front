@@ -1,0 +1,40 @@
+<div class="dbd-2" [class.full-width]="!authService.currentUserValue" [class.pl]="authService.currentUserValue">
+    <div class="db-2-com db-2-main">
+    <h4>Search Trains</h4>
+    <div class="inn-page-con-bg ">
+    <!-- <div class="rows"> -->
+        <div class="db-2-main-com db-2-main-com-table">
+            <table class="responsive-table">
+                <thead>
+                    <tr>
+                        <th>trainName</th>
+                        <th>startStation</th>
+                        <th>endStation</th>
+                        <th>bookDate</th>
+                        <th>numberOfTicket</th>
+                        <th>totalTicketPrice</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let ticket of bookings">
+                        <th>{{ ticket.trainName }}</th>
+                        <th>{{ ticket.startStation }}</th>
+                        <th>{{ ticket.endStation }}</th>
+                        <th>{{ ticket.bookDate }}</th>
+                        <th>{{ ticket.numberOfTicket }}</th>
+                        <th>{{ ticket.totalTicketPrice }}</th>
+
+                        <!-- <td><span class="db-done">Done</span>
+                        </td>
+                        <td><a href="db-travel-details.html" class="db-done">view more</a>
+                        </td> -->
+                    </tr>
+               
+                 
+                </tbody>
+            </table>
+        </div>
+    <!-- </div> -->
+    </div>
+    </div>
+</div>

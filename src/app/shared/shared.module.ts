@@ -3,11 +3,13 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from './material.module';
 import { FooterComponent } from '../public/pages/landing/footer/footer.component';
+import { AlertComponent } from '../public/pages/common/alert/alert.component';
 
 @NgModule({
     declarations: [
 
-    FooterComponent,
+        FooterComponent,
+        AlertComponent
     ],
     imports: [
         CommonModule,
@@ -21,7 +23,8 @@ import { FooterComponent } from '../public/pages/landing/footer/footer.component
         FormsModule,
         ReactiveFormsModule,
         FooterComponent,
+        AlertComponent
     ]
 })
 
-export class SharedModule{}
+export class SharedModule { }

@@ -50,7 +50,7 @@ export class TrainDetailsComponent implements OnInit {
       }
       this.stationService.getStationById(params['from']).subscribe(station => this.fromStation = station.data);
       this.stationService.getStationById(params['to']).subscribe(station => this.toStation = station.data);
-    this.trainService.getTrainDetails(params['trainId']).subscribe(train => this.train = train.data)
+      this.trainService.getTrainDetails(params['trainId']).subscribe(train => this.train = train.data)
     })
     this.from = document.querySelectorAll('#from');
     this.to = document.querySelectorAll('#to');
@@ -75,11 +75,11 @@ export class TrainDetailsComponent implements OnInit {
 
     this.stationService.getCategoryList().subscribe(res => {
 
-      this.categories = res.data; 
+      this.categories = res.data;
       setTimeout(() => {
-      this.ticketCategory = document.querySelectorAll('#ticket-category');
-      $(this.ticketCategory).formSelect();
-        
+        this.ticketCategory = document.querySelectorAll('#ticket-category');
+        $(this.ticketCategory).formSelect();
+
       }, 1000);
     })
   }
@@ -87,48 +87,67 @@ export class TrainDetailsComponent implements OnInit {
   getPrice() {
     var instance = M.FormSelect.getInstance($(this.ticketCategory));
     // console.log(instance.el.value);
-    
+
     this.category = instance.el.value;
     this.ticketService.getPrice(this.fromStation.id, this.toStation.id, +this.category)
-    .subscribe(price => {
-      this.price = price.data.price;
-      
-    })
+      .subscribe(price => {
+        this.price = price.data.price;
+
+      })
   }
 
   onQuantityChange() {
     console.log(this.quantity);
-    
+
     if (this.quantity <= 0) this.quantity = 1;
   }
 
- formatDate(date) {
+  formatDate(date) {
     var d = new Date(date),
-        month = '' + (d.getMonth() + 1),
-        day = '' + d.getDate(),
-        year = d.getFullYear();
+      month = '' + (d.getMonth() + 1),
+      day = '' + d.getDate(),
+      year = d.getFullYear();
 
-    if (month.length < 2) 
-        month = '0' + month;
-    if (day.length < 2) 
-        day = '0' + day;
+    if (month.length < 2)
+      month = '0' + month;
+    if (day.length < 2)
+      day = '0' + day;
 
     return [year, month, day].join('-');
-}
+  }
 
   bookTicket() {
     var instance = M.Datepicker.getInstance($(this.from));
     this.arrivalDate = this.formatDate(instance.toString());
+    console.log(this.authService.currentUserValue.userId);
 
-    return this.ticketService.bookTicket(this.arrivalDate, 
-      this.quantity, 
+    if (!this.arrivalDate || !this.quantity || !this.train || !this.train.id || !this.authService.currentUserValue.userId)
+      return;
+
+    return this.ticketService.bookTicket(this.arrivalDate,
+      this.quantity,
       this.quantity * this.price,
-       this.train.id, 
-       this.authService.currentUserValue.userId)
-       .subscribe(res => {
-         console.log(res);
-         
-       });
+      this.train.id,
+      this.authService.currentUserValue.userId)
+      .subscribe(res => {
+        console.log(res.data);
+        M.toast({ html: 'Booking ticket completed successfully!!' })
+            this.router.navigate(['/'])
+
+        this.ticketService.sendMessage(res.data.bookingdetailsId, this.authService.currentUserValue.phoneNumnber)
+          .subscribe(res => {
+            // this.router.navigate(['/'])
+            M.toast({ html: 'Ticket details will send to your mobile phone :)' })
+
+            // this.alertService.success("Booking ticket completed successfully!!", true);
+            console.log(res);
+
+          }, error => {
+            M.toast({ html: 'There is somthing wrong with SMS service:(' })
+
+          })
+
+      });
   }
 
 }

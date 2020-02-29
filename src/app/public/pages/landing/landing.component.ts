@@ -28,6 +28,8 @@ export class LandingComponent implements OnInit {
     this.trainService.getStationList()
       .subscribe(stationList => {
         this.stationList = stationList.data;
+      }, error => {
+        M.toast({html: 'Couldn\'t load stations list'})
       })
   }
 

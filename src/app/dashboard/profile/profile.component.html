@@ -1,0 +1,29 @@
+<div class="dbd-2" [class.full-width]="!authService.currentUserValue" [class.pl]="authService.currentUserValue">
+    <div class="db-2-com db-2-main">
+        <h4>My Profile</h4>
+        <div class="db-2-main-com db-2-main-com-table" style="background-color: white;">
+            <table class="responsive-table">
+                <tbody>
+                    <tr>
+                        <td>Name</td>
+                        <td>:</td>
+                        <td>{{ user.firstName + " " + user.lastName }}</td>
+                    </tr>
+                    <tr>
+                        <td>Eamil</td>
+                        <td>:</td>
+                        <td>{{ user.email }}</td>
+                    </tr>
+                    <tr>
+                        <td>Phone</td>
+                        <td>:</td>
+                        <td>{{ user.phoneNumnber }}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="db-mak-pay-bot">
+                 <a routerLink="/dashboard/edit" class="waves-effect waves-light btn-large">Edit my profile</a>
+                     </div>
+        </div>
+    </div>
+</div>

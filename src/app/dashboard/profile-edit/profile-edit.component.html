@@ -1,0 +1,31 @@
+<div class="dbd-2" [class.full-width]="!authService.currentUserValue" [class.pl]="authService.currentUserValue">
+    <div class="db-2-com db-2-main">
+        <h4>Edit My Profile </h4>
+        <div class="db-2-main-com db2-form-pay db2-form-com" style="background: white;">
+            <form class="col s12">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input type="text" [(ngModel)]="user.firstName" [ngModelOptions]="{standalone: true}" class="validate">
+                        <label>First Name</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <input type="text" [(ngModel)]="user.lastName" [ngModelOptions]="{standalone: true}" class="validate">
+                        <label>Last Name</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input type="text" [(ngModel)]="user.phoneNumnber" [ngModelOptions]="{standalone: true}" class="validate">
+                        <label>Phone</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12" (click)="save()">
+                        <i class="waves-effect waves-light full-btn waves-input-wrapper">
+                            <input type="submit" value="Save" class="waves-button-input"></i>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

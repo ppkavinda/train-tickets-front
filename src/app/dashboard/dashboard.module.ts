@@ -7,10 +7,13 @@ import { SideNavComponent } from './common/layout/side-nav/side-nav.component';
 import { HomeComponent } from './home/home.component';
 import { TrainDetailsComponent } from './train-details/train-details.component';
 import { SharedModule } from '../shared/shared.module';
+import { AllBookingsComponent } from './all-bookings/all-bookings.component';
+import { ProfileComponent } from './profile/profile.component';
+import { ProfileEditComponent } from './profile-edit/profile-edit.component';
 
 
 @NgModule({
-  declarations: [LayoutComponent, SideNavComponent, HomeComponent, TrainDetailsComponent],
+  declarations: [LayoutComponent, SideNavComponent, HomeComponent, TrainDetailsComponent, AllBookingsComponent, ProfileComponent, ProfileEditComponent],
   imports: [
     CommonModule,
     SharedModule,

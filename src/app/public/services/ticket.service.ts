@@ -23,7 +23,11 @@ export class TicketService {
     }})
   }
 
-  public sendMessage() {
+  public sendMessage(bookingdetailsId: any, phoneNumber: any) {
+    return this.http.post<any>(`${BASE_URL}/messege-sender`, {data: { bookingdetailsId, phoneNumber}})
+  }
 
+  public getAllBookings(userId: any) {
+    return this.http.get<any>(`${BASE_URL}/booking-details/get/${userId}`)
   }
 }

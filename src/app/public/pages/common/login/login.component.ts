@@ -3,7 +3,8 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
 import { AuthService } from 'src/app/public/services/auth.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AlertService } from 'src/app/public/services/alert.service';
+import { AlertService } from 'src/app/public/services/alert.service'
+import * as M from "materialize-css/dist/js/materialize";;
 
 @Component({
   selector: 'app-login',
@@ -40,11 +41,16 @@ export class LoginComponent implements OnInit {
       .pipe(first())
       .subscribe(
         data => {
-          if (data) this.router.navigate([this.returnUrl]);
+          console.log(this.returnUrl);
+          // this.alertService.success('', true);
+          M.toast({html: 'Signed in successfully!'})
+
+          if (data) this.router.navigateByUrl(this.returnUrl);
         },
         error => {
+          M.toast({html: 'Sign in failed!'})
           console.log('loginError', error);
-          
+          // this.alertService.success('', true);
           this.alertService.error(error);
           this.loading = false;
         });

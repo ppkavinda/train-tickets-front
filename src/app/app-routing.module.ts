@@ -5,6 +5,7 @@ import { LandingComponent } from './public/pages/landing/landing.component';
 import { NotFoundComponent } from './public/pages/common/not-found/not-found.component';
 import { LoginComponent } from './public/pages/common/login/login.component';
 import { RegisterComponent } from './public/pages/common/register/register.component';
+import { ContactUsComponent } from './public/pages/contact-us/contact-us.component';
 
 const routes: Routes = [
   {
@@ -23,6 +24,10 @@ const routes: Routes = [
   {
     path: 'register',
     component: RegisterComponent,
+  },
+  {
+    path: 'contact-us',
+    component: ContactUsComponent,
   },
   {
     path: 'not-found',

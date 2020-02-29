@@ -38,13 +38,25 @@ export class AuthService {
       }));
   }
 
+  update(user: User) {
+    console.log('registerService', user);
+
+    return this.http.post<any>(`${BASE_URL}/user/update`, {data: {...user}})
+      .pipe(map(user => {
+        if (user && user) {
+          localStorage.setItem('currentUser', JSON.stringify(user.data));
+          this.currentUserSubject.next(user);
+        }
+      }));
+  }
+
   register(user: User) {
     console.log('registerService', user);
 
-    return this.http.post<any>(`${BASE_URL}/register`, user)
+    return this.http.post<any>(`${BASE_URL}/user/create`, {data: {...user}})
       .pipe(map(user => {
-        if (user && user.token) {
-          localStorage.setItem('currentUser', JSON.stringify(user));
+        if (user && user) {
+          localStorage.setItem('currentUser', JSON.stringify(user.data));
           this.currentUserSubject.next(user);
         }
       }));
@@ -54,5 +66,6 @@ export class AuthService {
     // remove user from local storage to log user out
     localStorage.removeItem('currentUser');
     this.currentUserSubject.next(null);
+    this.router.navigate(['/login'])
   }
 }

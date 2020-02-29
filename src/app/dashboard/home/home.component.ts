@@ -60,6 +60,9 @@ export class HomeComponent implements OnInit {
       .subscribe(result => {
         console.log('homeComponent:Search', result);
         this.trains = result.data;
-      }, error => console.log(error));
+      }, error => {
+        M.toast({ html: 'Failed to search trains :(' })
+        console.log(error)
+      });
   }
 }

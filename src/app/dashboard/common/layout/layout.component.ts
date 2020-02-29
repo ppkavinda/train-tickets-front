@@ -41,6 +41,8 @@ export class LayoutComponent implements OnInit {
     this.trainService.getStationList()
     .subscribe(stationList => {
       this.stationList = stationList.data;
+    }, err => {
+      M.toast({html: 'Could\'nt load stations list:('})
     })
    }
 
