@@ -134,7 +134,7 @@ export class TrainDetailsComponent implements OnInit {
         M.toast({ html: 'Booking ticket completed successfully!!' })
             this.router.navigate(['/'])
 
-        this.ticketService.sendMessage(res.data.bookingdetailsId, this.authService.currentUserValue.phoneNumnber)
+        this.ticketService.sendMessage(res.data.bookingdetailsId, this.authService.currentUserValue.phoneNumnber, res.data.totalTicketPrice)
           .subscribe(res => {
             // this.router.navigate(['/'])
             M.toast({ html: 'Ticket details will send to your mobile phone :)' })
