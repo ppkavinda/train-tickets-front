@@ -13,7 +13,7 @@ import { StationService } from 'src/app/public/services/station.service';
   styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent implements OnInit {
-  private user: any;
+  public user: any;
 
   constructor(
     public authService: AuthService,

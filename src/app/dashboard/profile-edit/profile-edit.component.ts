@@ -14,7 +14,7 @@ import * as M from "materialize-css/dist/js/materialize";;
   styleUrls: ['./profile-edit.component.scss']
 })
 export class ProfileEditComponent implements OnInit {
-  private user: any;
+  public user: any;
 
   constructor(
     public authService: AuthService,
