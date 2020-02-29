@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit {
   returnUrl: string;
 
   constructor(
-    private authService: AuthService, 
+    private authService: AuthService,
     private route: ActivatedRoute,
     private router: Router,
     private alertService: AlertService
@@ -41,14 +41,17 @@ export class LoginComponent implements OnInit {
       .pipe(first())
       .subscribe(
         data => {
+          if (!data) {
+            M.toast({ html: 'Sign in failed!' })
+            return;
+          }
           console.log(this.returnUrl);
-          // this.alertService.success('', true);
-          M.toast({html: 'Signed in successfully!'})
-
+          M.toast({ html: 'Signed in successfully!' })
           if (data) this.router.navigateByUrl(this.returnUrl);
+
         },
         error => {
-          M.toast({html: 'Sign in failed!'})
+          M.toast({ html: 'Sign in failed!' })
           console.log('loginError', error);
           // this.alertService.success('', true);
           this.alertService.error(error);
