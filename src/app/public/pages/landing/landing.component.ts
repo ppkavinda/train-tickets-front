@@ -19,29 +19,31 @@ export class LandingComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit() {
-    $(document).ready(function () {
-      var from = document.querySelector('#from-landing');
-      var to = document.querySelector('#to-landing');
-      M.FormSelect.init(from, null);
-      M.FormSelect.init(to, null);
-    });
     this.trainService.getStationList()
       .subscribe(stationList => {
         this.stationList = stationList.data;
+
+        $(document).ready(function () {
+          var from = document.querySelector('#from-landing');
+          var to = document.querySelector('#to-landing');
+
+          M.FormSelect.init(from, null);
+          M.FormSelect.init(to, null);
+        });
       }, error => {
-        M.toast({html: 'Couldn\'t load stations list'})
+        M.toast({ html: 'Couldn\'t load stations list' })
       })
   }
 
   search(from: string, to: string) {
     if (!from || !to) return;
 
-        this.router.navigate(['/dashboard'], {queryParams: {from, to}});
+    this.router.navigate(['/dashboard'], { queryParams: { from, to } });
     // return this.trainService.search(from, to)
     //   .pipe(first())
     //   .subscribe(result => {
     //     console.log(result);
-        
+
     //   }, error => console.log(error));
 
   }

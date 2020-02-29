@@ -12,8 +12,8 @@ import * as M from "materialize-css/dist/js/materialize";
   styleUrls: ['./layout.component.scss']
 })
 export class LayoutComponent implements OnInit {
-  @ViewChild('from', {static: true}) from: ElementRef;
-  @ViewChild('to', {static: true}) to: ElementRef;
+  @ViewChild('from', { static: true }) from: ElementRef;
+  @ViewChild('to', { static: true }) to: ElementRef;
   stationList: any[];
 
   constructor(
@@ -24,13 +24,7 @@ export class LayoutComponent implements OnInit {
     private searchService: SearchService,
   ) { }
 
-  ngOnInit() { 
-    $(document).ready(function () {
-      var from = document.querySelectorAll('#from-top-nav');
-      var to = document.querySelectorAll('#to-top-nav');
-      M.FormSelect.init(from, null);
-      M.FormSelect.init(to, null);
-    });
+  ngOnInit() {
 
     // get query params and preselect the from/to dropdowns
     this.route.queryParams.subscribe(params => {
@@ -39,12 +33,18 @@ export class LayoutComponent implements OnInit {
     })
 
     this.trainService.getStationList()
-    .subscribe(stationList => {
-      this.stationList = stationList.data;
-    }, err => {
-      M.toast({html: 'Could\'nt load stations list:('})
-    })
-   }
+      .subscribe(stationList => {
+        this.stationList = stationList.data;
+        $(document).ready(function () {
+          var from = document.querySelectorAll('#from-top-nav');
+          var to = document.querySelectorAll('#to-top-nav');
+          M.FormSelect.init(from, null);
+          M.FormSelect.init(to, null);
+        });
+      }, err => {
+        M.toast({ html: 'Could\'nt load stations list:(' })
+      })
+  }
 
   search(from: string, to: string) {
     // return this.trainService.search(from, to)
